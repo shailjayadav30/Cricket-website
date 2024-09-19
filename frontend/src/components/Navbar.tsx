@@ -1,57 +1,43 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-
-interface NavItem {
-  id: number;
-  title: string;
-  Path: string;
-}
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navitems: NavItem[] = [
-    {
-      id: 0,
-      title: "Home",
-      Path: "/",
-    },
-    {
-      id: 2,
-      title: "About",
-      Path: "/about",
-    },
-    {
-      id: 1,
-      title: "Tournaments",
-      Path: "/tornaments",
-    },
-    {
-      id: 2,
-      title: "Contact",
-      Path: "/contact",
-    },
-    
-  ];
+  const handleScroll = (section: string) => {
+    if (location.pathname !== "/") {
+      // Navigate to home first, then scroll
+      navigate("/", { replace: true });
+      setTimeout(() => {
+        scrollToSection(section);
+      }, 0); // Wait for navigation to complete before scrolling
+    } else {
+      scrollToSection(section); // Directly scroll if already on home
+    }
+  };
+
+  const scrollToSection = (section: string) => {
+    const scroll = document.querySelector(`#${section}`);
+    scroll?.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false);
+  };
 
   return (
-    <div>
+    <div className="z-10">
       {/* Navbar Container */}
-      <div className="pl-4 pr-4 h-[6rem] absolute top-0 left-0 right-0 bg-transparent flex justify-between items-center z-10">
-        {/* Logo */}
-        <img src={logo} alt="Logo" className="h-[4rem] w-[4rem] rounded-[50%]" />
-
+      <div className=" pl-4 pr-4 h-[6rem] fixed top-0 left-0 right-0 backdrop-blur-md flex justify-end items-center z-10">
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
           <ul className="flex text-white gap-4 items-center justify-end">
-            {navitems.map((item) => (
-              <li key={item.id}>
-                <Link to={item.Path}>{item.title}</Link>
-              </li>
-            ))}
+            <button onClick={() => handleScroll("home")}>Home</button>
+            <button onClick={() => handleScroll("about")}>About</button>
+            <button onClick={() => handleScroll("tournaments")}>Tournaments</button>
+            <button onClick={() => navigate("/contact")}>Contact</button>
+            <button onClick={() => navigate("/history")}>Achievements</button>
           </ul>
         </nav>
 
@@ -59,7 +45,7 @@ const Navbar: React.FC = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white text-4xl   focus:outline-none"
+            className="text-white text-4xl focus:outline-none"
           >
             <FontAwesomeIcon icon={faBars} />
           </button>
@@ -77,15 +63,12 @@ const Navbar: React.FC = () => {
             >
               <FontAwesomeIcon icon={faXmark} />
             </button>
-            {/* Navigation Items */}
-            <ul className="flex text-white gap-4 items-center flex-col justify-center h-full ">
-              {navitems.map((item) => (
-                <li key={item.id}>
-                  <Link to={item.Path} onClick={() => setIsOpen(false)}>
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
+            <ul className="flex flex-col items-center justify-center h-full space-y-8 text-white text-2xl">
+              <button onClick={() => handleScroll("home")}>Home</button>
+              <button onClick={() => handleScroll("about")}>About</button>
+              <button onClick={() => handleScroll("tournaments")}>Tournaments</button>
+              <button onClick={() => navigate("/contact")}>Contact</button>
+              <button onClick={() => navigate("/history")}>Achievements</button>
             </ul>
           </nav>
         </div>
