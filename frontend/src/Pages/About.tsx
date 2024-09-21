@@ -37,8 +37,8 @@ const About: React.FC = () => {
               assumenda?
             </p>
             <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center lg:justify-start">
-              <Button text="Start Grow" />  
-              <Button text="Learn More" />
+              <Button text="Start Grow" to="/contact"/>  
+              <Button text="Learn More" to="/privacy"/>
             </div>
           </div>
 

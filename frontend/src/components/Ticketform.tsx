@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import cricketbg from "../images/cricketbg.jpg";
+import { useNavigate } from "react-router-dom";
 
-// TypeScript interface for form data
 interface TicketFormData {
   name: string;
   email: string;
@@ -13,15 +13,19 @@ interface TicketFormData {
 
 const TicketBookingForm: React.FC = () => {
   const [formData, setFormData] = useState<TicketFormData>({
-    name: '',
-    email: '',
-    match: '',
-    date: '',
-    seat: '',
+    name: "",
+    email: "",
+    match: "",
+    date: "",
+    seat: "",
     tickets: 1,
   });
+  const [bookingTime, setBookingTime] = useState<string>("");
+  const navigate = useNavigate();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -31,17 +35,37 @@ const TicketBookingForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    const now = new Date();
+    setBookingTime(now.toLocaleString());
+    navigate("/ticketdata", {
+      state: {
+        formData: formData,
+        bookingTime: now.toLocaleString(),
+      },
+    });
   };
 
   return (
-    <div className='w-[100%] h-screen bg-cover bg-center pt-[6rem]  flex items-center justify-center' style={{ backgroundImage: `url(${cricketbg})` }}>
-      <form className="max-w-3xl mx-auto p-6 bg-white shadow-2xl rounded-xl" onSubmit={handleSubmit}>
-        <h2 className="text-2xl font-bold text-center text-blue-800 mb-4">Book Your Cricket Match Tickets</h2>
+    <div 
+      className="w-[100%] h-screen bg-cover bg-center pt-[6rem]  flex items-center justify-center"
+      style={{ backgroundImage: `url(${cricketbg})` }}
+    >
+      <form 
+        className="max-w-3xl mx-auto p-6 bg-white shadow-2xl rounded-xl transition-transform transform duration-300 hover:scale-105 "
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-2xl font-bold text-center text-blue-800 mb-4">
+          Book Your Cricket Match Tickets
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
             <input
               type="text"
               id="name"
@@ -55,7 +79,12 @@ const TicketBookingForm: React.FC = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -71,7 +100,12 @@ const TicketBookingForm: React.FC = () => {
 
         {/* Match Selection */}
         <div className="mb-4">
-          <label htmlFor="match" className="block text-sm font-medium text-gray-700">Match</label>
+          <label
+            htmlFor="match"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Match
+          </label>
           <select
             id="match"
             name="match"
@@ -80,7 +114,9 @@ const TicketBookingForm: React.FC = () => {
             onChange={handleInputChange}
             required
           >
-            <option value="" disabled>Select a Match</option>
+            <option value="" disabled>
+              Select a Match
+            </option>
             <option value="Match 1">Match 1: Team A vs Team B</option>
             <option value="Match 2">Match 2: Team C vs Team D</option>
           </select>
@@ -89,7 +125,12 @@ const TicketBookingForm: React.FC = () => {
         {/* Date and Seat side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
           <div>
-            <label htmlFor="date" className="block text-sm font-medium text-gray-700">Date</label>
+            <label
+              htmlFor="date"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Date
+            </label>
             <input
               type="date"
               id="date"
@@ -102,7 +143,12 @@ const TicketBookingForm: React.FC = () => {
           </div>
 
           <div>
-            <label htmlFor="seat" className="block text-sm font-medium text-gray-700">Seat Selection</label>
+            <label
+              htmlFor="seat"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Seat Selection
+            </label>
             <select
               id="seat"
               name="seat"
@@ -111,7 +157,9 @@ const TicketBookingForm: React.FC = () => {
               onChange={handleInputChange}
               required
             >
-              <option value="" disabled>Select a Seat</option>
+              <option value="" disabled>
+                Select a Seat
+              </option>
               <option value="VIP">VIP</option>
               <option value="General">General</option>
               <option value="Economy">Economy</option>
@@ -121,7 +169,12 @@ const TicketBookingForm: React.FC = () => {
 
         {/* Number of Tickets */}
         <div className="mb-4">
-          <label htmlFor="tickets" className="block text-sm font-medium text-gray-700">Number of Tickets</label>
+          <label
+            htmlFor="tickets"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Number of Tickets
+          </label>
           <input
             type="number"
             id="tickets"

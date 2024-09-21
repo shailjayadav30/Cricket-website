@@ -26,18 +26,27 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   };
 
+  const handleContactClick = () => {
+    navigate("/contact");
+    setIsOpen(false); // Close the mobile menu
+  };
+
+  const handlehistoryClick = () => {
+    navigate("/history");
+    setIsOpen(false); // Close the mobile menu
+  };
   return (
     <div className="z-10">
       {/* Navbar Container */}
-      <div className=" pl-4 pr-4 h-[6rem] fixed top-0 left-0 right-0 backdrop-blur-md flex justify-end items-center z-10">
+      <div className="pl-4 pr-4 h-[6rem] fixed top-0 left-0 right-0 backdrop-blur-md flex justify-end items-center z-10">
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
           <ul className="flex text-white gap-4 items-center justify-end">
             <button onClick={() => handleScroll("home")}>Home</button>
             <button onClick={() => handleScroll("about")}>About</button>
             <button onClick={() => handleScroll("tournaments")}>Tournaments</button>
-            <button onClick={() => navigate("/contact")}>Contact</button>
-            <button onClick={() => navigate("/history")}>Achievements</button>
+            <button onClick={handleContactClick}>Contact</button>
+            <button onClick={handlehistoryClick}>Achievements</button>
           </ul>
         </nav>
 
@@ -67,8 +76,8 @@ const Navbar: React.FC = () => {
               <button onClick={() => handleScroll("home")}>Home</button>
               <button onClick={() => handleScroll("about")}>About</button>
               <button onClick={() => handleScroll("tournaments")}>Tournaments</button>
-              <button onClick={() => navigate("/contact")}>Contact</button>
-              <button onClick={() => navigate("/history")}>Achievements</button>
+              <button onClick={handleContactClick}>Contact</button>
+              <button onClick={handlehistoryClick}>Achievements</button>
             </ul>
           </nav>
         </div>
