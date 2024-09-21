@@ -22,7 +22,7 @@ const TicketBookingForm: React.FC = () => {
   });
   const [bookingTime, setBookingTime] = useState<string>("");
   const navigate = useNavigate();
-
+console.log(bookingTime)
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
