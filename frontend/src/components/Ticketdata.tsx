@@ -29,7 +29,7 @@ const Ticketdata: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1.5 }}
+      transition={{ duration: 1 }}
       className="flex items-center justify-center h-[100vh] w-full"
       style={{
         backgroundImage: `url(${formdatabg})`,

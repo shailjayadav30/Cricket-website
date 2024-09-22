@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import { AnimatePresence } from "framer-motion";
 import Contact from "./Pages/Contact";
 import Matches from "./Pages/Matches";
-import Upcomings from "./Pages/Upcomings";
 import History from "./Pages/History";
 import Scroll from "./Scroll";
 import Ticketform from "./components/Ticketform";
@@ -24,7 +23,6 @@ function App() {
           <Route path="/" element={<Scroll />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/matches" element={<Matches />} />
-          <Route path="/upcoming" element={<Upcomings />} />
           <Route path="/history" element={<History />} />
           <Route path="/ticketform" element={<Ticketform/>}/>
           <Route path="/ticketdata" element={<Ticketdata/>}/>

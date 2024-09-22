@@ -47,11 +47,11 @@ console.log(bookingTime)
 
   return (
     <div 
-      className="w-[100%] h-screen bg-cover bg-center pt-[6rem]  flex items-center justify-center"
+      className="w-[100%] h-screen bg-cover bg-center flex pt-[6rem]   items-center justify-center"
       style={{ backgroundImage: `url(${cricketbg})` }}
     >
       <form 
-        className="max-w-3xl mx-auto p-6 bg-white shadow-2xl rounded-xl transition-transform transform duration-300 hover:scale-105 "
+        className="mt-[16rem] sm:mt-7 max-w-3xl mx-auto p-6 bg-white shadow-2xl rounded-xl transition-transform transform duration-300 hover:scale-105 "
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl font-bold text-center text-blue-800 mb-4">
