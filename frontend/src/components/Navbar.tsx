@@ -41,12 +41,12 @@ const Navbar: React.FC = () => {
       <div className="pl-4 pr-4 h-[6rem] fixed top-0 left-0 right-0 backdrop-blur-md flex justify-end items-center z-10">
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
-          <ul className="flex text-white gap-4 items-center justify-end">
-            <button onClick={() => handleScroll("home")}>Home</button>
-            <button onClick={() => handleScroll("about")}>About</button>
-            <button onClick={() => handleScroll("tournaments")}>Tournaments</button>
-            <button onClick={handleContactClick}>Contact</button>
-            <button onClick={handlehistoryClick}>Achievements</button>
+          <ul className="flex text-[#FFFFFF]  gap-4 items-center justify-end">
+            <button className="hover:text-[#3B82F6]" onClick={() => handleScroll("home")}>Home</button>
+            <button className="hover:text-[#3B82F6]" onClick={() => handleScroll("about")}>About</button>
+            <button className="hover:text-[#3B82F6]" onClick={() => handleScroll("tournaments")}>Tournaments</button>
+            <button className="hover:text-[#3B82F6]" onClick={handleContactClick}>Contact</button>
+            <button className="hover:text-[#3B82F6]" onClick={handlehistoryClick}>Achievements</button>
           </ul>
         </nav>
 

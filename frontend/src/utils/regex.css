@@ -8,12 +8,14 @@ border: none; /* border-none */
 font-weight: 700; /* font-bold */
 cursor: pointer;
 box-shadow: 0 0 1rem #0000002a;
+
 }
 
 .fancy-btn-text-container{
     position: relative;
     display: flex;
     overflow: hidden;
+    /* align-items: center; */
 }
 .fancy-btn-char-container{
     position: relative;

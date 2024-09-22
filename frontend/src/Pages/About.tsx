@@ -36,10 +36,10 @@ const About: React.FC = () => {
               soluta ipsa delectus quisquam quia! Et nostrum debitis labore fugiat
               assumenda?
             </p>
-            <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center lg:justify-start">
-              <Button text="Start Grow" to="/contact"/>  
-              <Button text="Learn More" to="/privacy"/>
-            </div>
+            <div className="flex flex-row items-center space-x-4 justify-center lg:justify-start">
+  <Button text="Start Grow" to="/contact" />
+  <Button text="Learn More" to="/privacy" />
+</div>
           </div>
 
           {/* Right Image */}
