@@ -31,8 +31,8 @@ const Home = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      exit={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
       id="home"
       className="relative min-h-screen w-full flex items-center justify-between bg-slate-900"
       style={{ backgroundImage: `url(${banner})`, backgroundRepeat: "no-repeat", backgroundSize: "35rem", backgroundPosition: "center" }}

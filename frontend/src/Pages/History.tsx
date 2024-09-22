@@ -12,7 +12,7 @@ const History = () => {
   return (
     <motion.div  initial={{opacity:0}}
     animate={{opacity:1}}
-    exit={{opacity:0}}
+    exit={{opacity:0.5}}
     transition={{duration:1 }}
     className=""> 
       <Achieve boxes={data}/>
