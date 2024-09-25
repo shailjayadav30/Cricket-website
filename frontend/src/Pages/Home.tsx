@@ -10,19 +10,19 @@ const Home = () => {
     {
       id: 1,
       icon: faInstagram,
-      hoverColor: 'hover:text-pink-600',  
+      hoverColor: 'hover:text-pink-600',
       link: "https://www.instagram.com/"
     },
     {
       id: 2,
       icon: faTwitter,
-      hoverColor: 'hover:text-blue-400',    
+      hoverColor: 'hover:text-blue-400',
       link: "https://x.com/"
     },
     {
       id: 3,
       icon: faFacebook,
-      hoverColor: 'hover:text-blue-900',   
+      hoverColor: 'hover:text-blue-900',
       link: "https://www.facebook.com/"
     }
   ];
@@ -32,7 +32,7 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.1 }}
       id="home"
       className="relative min-h-screen w-full flex items-center justify-between bg-slate-900"
       style={{ backgroundImage: `url(${banner})`, backgroundRepeat: "no-repeat", backgroundSize: "35rem", backgroundPosition: "center" }}
@@ -44,7 +44,7 @@ const Home = () => {
         <p className="text-white text-base md:text-lg lg:text-xl mb-4">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, deleniti.
         </p>
-        <Button text="Book Ticket" to="/ticketform" /> {/* Pass the "to" prop here */}
+        <Button text="Book Ticket" to="/ticketform" />
       </div>
       <div className="text-white gap-4 pr-2 flex flex-col">
         {icons.map((item) => (

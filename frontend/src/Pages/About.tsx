@@ -8,7 +8,7 @@ const slideUpVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 50, duration: 1 },
+    transition: { type: "spring", stiffness: 50, duration: 0.4 },
   },
 };
 
@@ -19,14 +19,14 @@ const About: React.FC = () => {
         id="about"
         className="text-white bg-slate-900 min-h-screen w-full flex flex-col justify-center items-center"
       >
-        {/* Upper Section */}
+
         <motion.div
           className="flex flex-col-reverse lg:flex-row lg:p-16 bg-gradient-to-b from-slate-900 to-gray-800 mb-8 w-full max-w-7xl"
           variants={slideUpVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Left Content */}
+
           <div className="flex flex-col justify-center lg:w-1/2 space-y-6 p-6 lg:p-12 text-center lg:text-left">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
               We Help You Grow As A Team
@@ -42,7 +42,7 @@ const About: React.FC = () => {
 </div>
           </div>
 
-          {/* Right Image */}
+
           <div className="lg:w-1/2 flex justify-center items-center p-4 lg:p-0">
             <img
               src={playerbg}

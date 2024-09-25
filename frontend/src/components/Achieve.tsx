@@ -11,11 +11,10 @@ interface AchieveProps {
 
 const Achieve: React.FC<AchieveProps> = ({ boxes }) => {
   return (
-    <div className="bg-gradient-to-b  from-gray-300 to-blue-100 flex items-center pt-[3rem] justify-center min-h-screen relative overflow-hidden p-4">
+    <div className="bg-slate-900 from-gray-300 to-blue-100 flex items-center pt-[3rem] justify-center min-h-screen relative overflow-hidden p-4">
       <div className="relative py-10">
-        {/* Title Section */}
         <div className="relative flex flex-col items-center justify-center z-10 mb-12">
-          <h3 className="text-black text-3xl sm:text-4xl md:text-5xl font-semibold drop-shadow-lg tracking-wide">
+          <h3 className="text-white text-3xl sm:text-4xl md:text-5xl font-semibold drop-shadow-lg tracking-wide">
             Our Wonderful
           </h3>
           <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-600 mt-2 tracking-wider drop-shadow-lg">
@@ -23,7 +22,6 @@ const Achieve: React.FC<AchieveProps> = ({ boxes }) => {
           </span>
         </div>
 
-        {/* Achievements Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-center mt-12">
           {boxes.map((box, index) => (
             <div

@@ -1,11 +1,11 @@
 .fancy-btn{
-background-color: #1b9aaa; /* lime-400 */
-color: #fff; 
-font-size: 1rem; /* text-[1rem] */
-padding:    0.5rem  1rem; /* pl-[1rem] */
-border-radius:2rem; /* rounded-3xl */
-border: none; /* border-none */
-font-weight: 700; /* font-bold */
+background-color: #1b9aaa;
+color: #fff;
+font-size: 1rem;
+padding:    0.5rem  1rem;
+border-radius:2rem;
+border: none;
+font-weight: 700;
 cursor: pointer;
 box-shadow: 0 0 1rem #0000002a;
 
@@ -15,7 +15,6 @@ box-shadow: 0 0 1rem #0000002a;
     position: relative;
     display: flex;
     overflow: hidden;
-    /* align-items: center; */
 }
 .fancy-btn-char-container{
     position: relative;

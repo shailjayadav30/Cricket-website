@@ -12,10 +12,10 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsOfService from "./Pages/TermsOfService";
 
 function App() {
-  const location = useLocation(); 
+  const location = useLocation();
 
   return (
-    <div>
+    <div className='bg-slate-900'>
       <Navbar />
 
       <AnimatePresence mode="wait" initial={false}>
