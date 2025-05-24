@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import axios from "axios"
 interface FormValues {
   fname: string;
   lname: string;
@@ -31,6 +31,8 @@ const Form: React.FC = () => {
       setFormValues(JSON.parse(savedData));
     }
   }, []);
+ 
+   
 
   const validate = () => {
     let isValid = true;
@@ -61,11 +63,28 @@ const Form: React.FC = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit =async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
+      try{
+        const response =await axios.post("http://localhost:8000/api/contact",{
+          firstname:formValues.fname,
+          lastname: formValues.lname,
+        email: formValues.email,
+        phonenumber: formValues.phone,
+        topic: formValues.topic,
+        })
+        console.log("Server response",response.data)
+        alert(response.data.message || "Form submitted successfully ")
       localStorage.setItem("formData", JSON.stringify(formValues));
-      console.log("Form Data Submitted and Saved to Local Storage: ", formValues);
+
+      }catch(error:any){
+        const errormsg=error.response?.data?.message ||error.message ||  "Error submitting form"
+        console.log("Error submitting form:",error)
+        alert(
+           errormsg
+        )
+      }
     }
   };
 

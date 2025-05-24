@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors"
 import contactRoute from "./routes/contactroute"
+import ticketRoute from "./routes/ticketroute"
 dotenv.config();
 
 const app = express();
@@ -17,6 +18,8 @@ if (!mongoUrl) {
 }
 
 app.use("/api",contactRoute)
+app.use("/booking",ticketRoute)
+
 
 mongoose
   .connect(mongoUrl)

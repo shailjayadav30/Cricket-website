@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import cricketbg from "../images/cricketbg.jpg";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface TicketFormData {
   name: string;
@@ -22,7 +23,7 @@ const TicketBookingForm: React.FC = () => {
   });
   const [bookingTime, setBookingTime] = useState<string>("");
   const navigate = useNavigate();
-console.log(bookingTime)
+  console.log(bookingTime);
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -33,16 +34,30 @@ console.log(bookingTime)
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/booking/ticket",
+        {
+          name: formData.name,
+          email: formData.email,
+          match: formData.match,
+          date: formData.date,
+          seat: formData.seat,
+          tickets: formData.tickets,
+        })
+        console.log("server response :",response.data)
+        alert(response.data.message || "ticket booked successfully")
+        localStorage.setItem("ticket data",JSON.stringify(formData))
+    } catch (error:any) {
+      const ermsg=error.response?.data?.message || error.message ||"Error booking ticket"
+      console.log("error in ticket booking",error)
+      alert(ermsg)
+    }
     const now = new Date();
     setBookingTime(now.toLocaleString());
-    navigate("/ticketdata", {
-      state: {
-        formData: formData,
-        bookingTime: now.toLocaleString(),
-      },
-    });
+   
   };
 
   return (
@@ -117,8 +132,9 @@ console.log(bookingTime)
             <option value="" disabled>
               Select a Match
             </option>
-            <option value="Match 1">Match 1: Team A vs Team B</option>
-            <option value="Match 2">Match 2: Team C vs Team D</option>
+           <option value="T20">T20</option>
+<option value="ODI">ODI</option>
+<option value="Test">Test</option>
           </select>
         </div>
 
@@ -161,8 +177,10 @@ console.log(bookingTime)
                 Select a Seat
               </option>
               <option value="VIP">VIP</option>
-              <option value="General">General</option>
-              <option value="Economy">Economy</option>
+<option value="General">General</option>
+<option value="Student">Student</option>
+<option value="Balcony">Balcony</option>
+
             </select>
           </div>
         </div>

@@ -23,6 +23,8 @@ const Ticketdata: React.FC = () => {
   const location = useLocation() as LocationState;
   const navigate = useNavigate();
   const { formData, bookingTime } = location.state;
+   
+   
 
   return (
     <motion.div
