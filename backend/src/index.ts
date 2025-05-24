@@ -8,7 +8,10 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin:["http://localhost:5173","https://cricket-website-tan.vercel.app"],
+  credentials:true
+}))
 const port = process.env.PORT || 5000;
 const mongoUrl = process.env.MONGO_URL;
 
@@ -16,7 +19,9 @@ if (!mongoUrl) {
   console.error("Mongo url i not defined");
   process.exit(1);
 }
-
+app.get("/",(req,res)=>{
+  res.send("hello")
+})
 app.use("/api",contactRoute)
 app.use("/booking",ticketRoute)
 
