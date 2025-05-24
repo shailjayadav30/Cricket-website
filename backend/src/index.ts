@@ -30,6 +30,7 @@ app.use("/booking", ticketRoute);
 mongoose
   .connect(mongoUrl)
   .then(() => {
-    app.listen(port, () => console.log(`Server is running on port ${port}`));
+    console.log("Database Connected ");
   })
-  .catch((err) => console.log(err,"Failed to connect to db")) 
+  .catch((err) => console.log(err,"Failed to connect to db")) ;
+app.listen(port, () => console.log(`Server is running on port ${port}`))
