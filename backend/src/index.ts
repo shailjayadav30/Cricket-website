@@ -7,7 +7,7 @@ import ticketRoute from "./routes/ticketroute"
 dotenv.config();
 
 const app = express();
-app.use(express.json());
+app.use(express.json());  
 app.use(cors({
   origin:["http://localhost:5173","https://cricket-website-tan.vercel.app"],
   credentials:true
