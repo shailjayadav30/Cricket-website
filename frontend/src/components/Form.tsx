@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 interface FormValues {
   fname: string;
   lname: string;
@@ -78,8 +78,9 @@ const Form: React.FC = () => {
         alert(response.data.message || "Form submitted successfully ")
       localStorage.setItem("formData", JSON.stringify(formValues));
 
-      }catch(error:any){
-        const errormsg=error.response?.data?.message ||error.message ||  "Error submitting form"
+      }catch(error){
+          const err = error as AxiosError<{ message: string }>;
+        const errormsg=err.response?.data?.message ||err.message ||  "Error submitting form"
         console.log("Error submitting form:",error)
         alert(
            errormsg

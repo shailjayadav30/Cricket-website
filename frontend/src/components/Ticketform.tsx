@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cricketbg from "../images/cricketbg.jpg";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 interface TicketFormData {
   name: string;
@@ -50,14 +50,20 @@ const TicketBookingForm: React.FC = () => {
         console.log("server response :",response.data)
         alert(response.data.message || "ticket booked successfully")
         localStorage.setItem("ticket data",JSON.stringify(formData))
-    } catch (error:any) {
-      const ermsg=error.response?.data?.message || error.message ||"Error booking ticket"
+    } catch (error) {
+        const err = error as AxiosError<{ message: string }>;
+      const ermsg=err.response?.data?.message || err.message ||"Error booking ticket"
       console.log("error in ticket booking",error)
       alert(ermsg)
     }
     const now = new Date();
     setBookingTime(now.toLocaleString());
-   
+    navigate("/ticketdata", {
+      state: {
+        formData: formData,
+        bookingTime: now.toLocaleString(),
+      },
+    });
   };
 
   return (
