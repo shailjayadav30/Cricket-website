@@ -38,7 +38,7 @@ const TicketBookingForm: React.FC = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/booking/ticket",
+        "https://cricket-backend-sigma.vercel.app/booking/ticket",
         {
           name: formData.name,
           email: formData.email,

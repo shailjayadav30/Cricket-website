@@ -67,7 +67,7 @@ const Form: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       try{
-        const response =await axios.post("http://localhost:8000/api/contact",{
+        const response =await axios.post("https://cricket-backend-sigma.vercel.app/api/contact",{
           firstname:formValues.fname,
           lastname: formValues.lname,
         email: formValues.email,
