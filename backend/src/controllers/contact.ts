@@ -20,7 +20,7 @@ export const contact = async (req: Request, res: Response) => {
     console.log("error saving user:",error)
     res.status(500).json({
         message:"Error saving user",
-        error
+        error:error instanceof Error ? error.message : error
     });
   }
 };

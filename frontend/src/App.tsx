@@ -10,6 +10,9 @@ import Ticketform from "./components/Ticketform";
 import Ticketdata from "./components/Ticketdata";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsOfService from "./Pages/TermsOfService";
+import Admin from "./Pages/Admin";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
   const location = useLocation();
@@ -28,6 +31,12 @@ function App() {
           <Route path="/ticketdata" element={<Ticketdata/>}/>
           <Route path="/privacy" element={<PrivacyPolicy/>}/>
           <Route path="/termsofservice" element={<TermsOfService/>}/>
+          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+
+
+
         </Routes>
       </AnimatePresence>
     </div>
