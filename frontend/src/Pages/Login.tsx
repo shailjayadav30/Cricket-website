@@ -44,7 +44,7 @@ const Login: React.FC = () => {
 
       // Redirect to dashboard or home page after 2 seconds
       setTimeout(() => {
-        navigate("/home"); // Adjust to your protected route
+        navigate("/"); // Adjust to your protected route
       }, 2000);
     } catch (error) {
       const err = error as AxiosError<{ message?: string; error?: string }>;

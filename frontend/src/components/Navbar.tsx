@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Mock login state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Mock login state
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const user = {
