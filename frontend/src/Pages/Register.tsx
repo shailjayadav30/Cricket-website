@@ -17,7 +17,7 @@ const Register: React.FC = () => {
     setSuccess(null); // Clear previous success messages
 
     try {
-      const response = await axios.post("http://localhost:8000/auth/register", {
+      const response = await axios.post("https://cricket-backend-sigma.vercel.app/auth/register", {
         name: fullName,
         email: email,
         password: password,

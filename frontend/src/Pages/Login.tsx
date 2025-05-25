@@ -21,7 +21,7 @@ const Login: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/login", // Updated port to 5000
+        "https://cricket-backend-sigma.vercel.app/auth/login", // Updated port to 5000
         {
           email,
           password,
