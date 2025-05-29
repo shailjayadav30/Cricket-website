@@ -156,7 +156,9 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       token,
       user: { id: newUser._id, email: newUser.email, name: newUser.name },
     });
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error,message:"Failed to register" });
+    
   }
 };
