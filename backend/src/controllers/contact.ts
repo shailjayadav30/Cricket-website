@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Contact from "../models/contactmodel";
 export const contact = async (req: Request, res: Response) => {
-  try {
+  try { 
     const { firstname, lastname, email, phonenumber, topic } = req.body;
     console.log(req.body);
     const newuser = new Contact({
@@ -24,3 +24,5 @@ export const contact = async (req: Request, res: Response) => {
     });
   }
 };
+
+

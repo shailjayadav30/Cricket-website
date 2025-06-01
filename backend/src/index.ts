@@ -5,6 +5,7 @@ import cors from "cors";
 import contactRoute from "./routes/contactroute";
 import ticketRoute from "./routes/ticketroute";
 import authRoute from "./routes/authroute"
+import subscribeRoute from "./routes/subscribe"
 dotenv.config();
 
 const app = express();
@@ -20,6 +21,8 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 app.use("/api", contactRoute);
+app.use("/api", subscribeRoute);
+
 app.use("/booking", ticketRoute);
 app.use("/auth",authRoute)
 const port = process.env.PORT || 5000;
