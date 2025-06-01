@@ -13,10 +13,13 @@ export  const subscribe =async(req:Request,res:Response)=>{
         res.status(409).json({
             message:"User Allready Subscribed"
         })
+        return
     }
     await Subscriber.create({email}) 
     res.status(201).json({message:"Subscribed successfully!"})
+    return
    } catch (error) {
      res.status(400).json({message:"Server error"})
+     return
    }
 }
